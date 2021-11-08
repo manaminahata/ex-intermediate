@@ -1,5 +1,7 @@
 package com.example.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -19,10 +21,10 @@ public class BaseballRepository {
 		= (rs, i) -> {
 			BaseballTeam baseballTeam = new BaseballTeam();
 			baseballTeam.setId(rs.getInt("id"));
-			baseballTeam.setLeagueName(rs.getString("leagueName"));
-			baseballTeam.setTeamName(rs.getString("teamName"));
+			baseballTeam.setLeagueName(rs.getString("league_name"));
+			baseballTeam.setTeamName(rs.getString("team_name"));
 			baseballTeam.setHeadquarters(rs.getString("headquarters"));
-			baseballTeam.setInaguration(rs.getString("inaguration"));
+			baseballTeam.setInaguration(rs.getString("inauguration"));
 			baseballTeam.setHistory(rs.getString("history"));
 			return baseballTeam;
 		};
@@ -34,7 +36,7 @@ public class BaseballRepository {
 		 */
 		public BaseballTeam load(Integer id) {
 			// SQL文の作成
-			String loadSql = "SELECT team_name, headquarters, inaguration, history "
+			String loadSql = "SELECT * "
 					+ " FROM teams WHERE id=:id";
 			
 			// プレースホルダに値を代入
@@ -45,4 +47,20 @@ public class BaseballRepository {
 			
 			return baseballTeam;
 		}
+		
+		/**
+		 * 全件検索する
+		 * @return
+		 */
+		public List<BaseballTeam> findAll() {
+			// SQLの定義
+			String findAllSql = "SELECT * FROM teams ORDER BY id";
+			
+			// SQlの実行
+			List<BaseballTeam> teamList = template.query(findAllSql, BASEBALL_TEAM_ROW_MAPPER);
+			
+			return teamList;
+		}
+		
+	
 }
