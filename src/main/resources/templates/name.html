@@ -13,6 +13,8 @@
 <span th:text="${baseballTeam.inaguration}">dummy</span><br>
 <h2>歴史</h2>
 <span th:text="${baseballTeam.history}">dummy</span><br>
-<button th:href="@{/team-list}">戻る</button>
+<form th:action="@{/teams}" method="post">
+<button>戻る</button>
+</form>
 </body>
 </html>
