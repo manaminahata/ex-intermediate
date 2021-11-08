@@ -11,7 +11,7 @@ public class BaseballTeam {
 	// 本拠地
 	private String headquarters;
 	// 発足
-	private String inaguration;
+	private String inauguration;	
 	// 歴史
 	private String history;
 	
@@ -41,10 +41,10 @@ public class BaseballTeam {
 		this.headquarters = headquarters;
 	}
 	public String getInaguration() {
-		return inaguration;
+		return inauguration;
 	}
 	public void setInaguration(String inaguration) {
-		this.inaguration = inaguration;
+		this.inauguration = inaguration;
 	}
 	public String getHistory() {
 		return history;
@@ -56,6 +56,6 @@ public class BaseballTeam {
 	@Override
 	public String toString() {
 		return "BaseballTeam [id=" + id + ", leagueName=" + leagueName + ", teamName=" + teamName + ", headquarters="
-				+ headquarters + ", inaguration=" + inaguration + ", history=" + history + "]";
+				+ headquarters + ", inaguration=" + inauguration + ", history=" + history + "]";
 	}
 }
