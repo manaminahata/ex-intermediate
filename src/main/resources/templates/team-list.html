@@ -6,11 +6,10 @@
 </head>
 <body>
 <h2>野球チーム一覧</h2>
-<a th:href="@{/teams/name?id=1}">読売ジャイアンツ</a><br>
-<a th:href="@{/teams/name?id=2}">阪神タイガース</a><br>
-<a th:href="@{/teams/name?id=3}">中日ドラゴンズ</a><br>
-<a th:href="@{/teams/name?id=4}">横浜DeNAベイスターズ</a><br>
-<a th:href="@{/teams/name?id=5}">広島東洋カープ</a><br>
-<a th:href="@{/teams/name?id=6}">東京ヤクルトスワローズ</a><br>
+<span th:each="team:${baseballTeamList}">
+<a th:href="@{/teams/name?id=} + ${team.id}">
+<span th:text="${team.teamName}">dummy</span>
+</a><br>
+</span>
 </body>
 </html>
