@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,15 @@ public class BaseballService {
 	 * @param id
 	 * @return 該当のチームをリターンする
 	 */
-	public BaseballTeam load(Integer id) {
+	public BaseballTeam showDetail(Integer id) {
 		return baseballRepository.load(id);
+	}
+	
+	/**
+	 * 全件検索するメソッドを定義
+	 * @return
+	 */
+	public List<BaseballTeam> showList() {
+		return baseballRepository.findAll();
 	}
 }
