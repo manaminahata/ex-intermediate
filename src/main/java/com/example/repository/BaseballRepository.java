@@ -61,8 +61,8 @@ public class BaseballRepository {
 		 */
 		public List<BaseballTeam> findAll() {
 			// SQLの定義
-			// ORDER BY　idでidの昇順に表示されるようにする
-			String findAllSql = "SELECT * FROM teams ORDER BY id";
+			// ORDER BY　inaugurationでinaugurationの昇順に表示されるようにする
+			String findAllSql = "SELECT * FROM teams ORDER BY inauguration";
 			
 			// SQlの実行
 			// 全検索のため、2つ以上の情報となるので「query」

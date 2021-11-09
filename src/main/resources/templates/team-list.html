@@ -5,11 +5,14 @@
 <title>野球チーム一覧</title>
 </head>
 <body>
-<h2>野球チーム一覧</h2>
-<span th:each="team:${baseballTeamList}">
-<a th:href="@{/teams/name?id=} + ${team.id}">
-<span th:text="${team.teamName}">dummy</span>
-</a><br>
-</span>
+	<h2>野球チーム一覧</h2>
+	<!-- 全件検索結果を元に各チームにリンク先を紐付け、チームを表示させる -->
+	<span th:each="team:${baseballTeamList}">
+	 <!-- 各球団ごとにURLのIDを振り分ける -->
+	 <a th:href="@{/teams/name?id=} + ${team.id}">
+	  <!-- 球団名を表示させる -->
+	  <span th:text="${team.teamName}">dummy</span>
+	</a><br>
+	</span>
 </body>
 </html>
