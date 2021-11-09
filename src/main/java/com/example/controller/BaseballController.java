@@ -21,12 +21,6 @@ public class BaseballController {
 	@Autowired
 	private BaseballService baseballService;
 	
-	// なんのために定義している？
-	@ModelAttribute
-	public BaseballForm baseballSetUpForm() {
-		return new BaseballForm();
-	}
-	
 	/**
 	 * team-list.htmlで野球チーム一覧を表示させる
 	 * 
@@ -57,11 +51,11 @@ public class BaseballController {
 	@RequestMapping("/name")
 	public String teamName(Integer id, Model model) {
 		// ドメインクラスのインスタンス化
-		BaseballTeam baseballTeam = new BaseballTeam();
+		BaseballTeam baseballTeam = baseballService.showDetail(id);
 		
 		// 引数のidを使ってリンク先のデータを識別する
 		// リンクを開くことでshowDetailに引数のidが代入される
-		baseballTeam = baseballService.showDetail(id);
+	
 		
 		// そのまま値の受け渡しをすることができないため、
 		//　リクエストスコープに格納する
